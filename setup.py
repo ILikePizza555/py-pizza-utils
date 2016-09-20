@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name="pizza-utils",
     version="0.0.1",
-    url="https://github.com/ILikePizza555/py-pizza-utils"
+    url="https://github.com/ILikePizza555/py-pizza-utils",
     description="My personal python utilities",
     author="Isaac Avram",
     author_email="avrisaac555@gmail.com",
