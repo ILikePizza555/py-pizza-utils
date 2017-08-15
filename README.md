@@ -21,6 +21,10 @@ A collection of utilities for iteration
 
 Creates a sliding iterator of size `size` for the given `iterable`. `fillvalue` specifies the value to return when the iterable runs out of items.
 
+### iterutils.map_nested(v, f) ###
+
+Recursivly applies a function `f` over a nested data structure `v`
+
 ## Stringutils ##
 
 ### stringutils.find_from(string, subs, [start, [end]]) ###
