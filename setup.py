@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="pizza-utils",
-    version="0.0.1",
+    version="0.0.2",
     url="https://github.com/ILikePizza555/py-pizza-utils",
     description="My personal python utilities",
     author="Isaac Avram",
