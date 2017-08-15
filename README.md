@@ -35,3 +35,9 @@ If nothing is found, it will return (-1, None)
 >>> find_from("abcd", ("d", "c", "b", "a"))
 (0, "a")
 ```
+
+## Listutils ##
+
+### listutils.split(l, index) ###
+
+Splits a list at the given index. Returns a tuple containing two lists.
