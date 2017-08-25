@@ -45,3 +45,9 @@ If nothing is found, it will return (-1, None)
 ### listutils.split(l, index) ###
 
 Splits a list at the given index. Returns a tuple containing two lists.
+
+### listutils.chunk(l, n) ###
+
+Generator that splits a list into n-sized chunks
+
+Code taken from: https://stackoverflow.com/questions/312443/how-do-you-split-a-list-into-evenly-sized-chunks
