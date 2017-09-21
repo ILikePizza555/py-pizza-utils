@@ -33,6 +33,36 @@ class Bitfield():
 
         return NotImplemented
 
+    def __lshift__(self, o):
+        if type(o) != int:
+            return NotImplemented
+
+        self._value << o
+
+    def __rshift__(self, o):
+        if type(o) != int:
+            return NotImplemented
+
+        self._value >> o
+
+    def __and__(self, o):
+        if type(o) != int:
+            return NotImplemented
+
+        self._value & o
+
+    def __xor__(self, o):
+        if type(o) != int:
+            return NotImplemented
+
+        self._value ^ o
+
+    def __or__(self, o):
+        if type(o) != int:
+            return NotImplemented
+
+        self._value | o
+
     def __str__(self):
         return "Bitfield " + bin(self._value)
 
