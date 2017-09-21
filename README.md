@@ -35,7 +35,7 @@ If nothing is found, it will return (-1, None)
 
 `start` and `end` follows the python slice notation
 
-```
+```python
 >>> find_from("abcd", ("d", "c", "b", "a"))
 (0, "a")
 ```
@@ -60,11 +60,11 @@ A module for dealing with bitfields
 
 Represents a bitfield. This class functions as if the data is little-endian -- that is, the least significant bit is the first one.
 
-An inital value for Bitfield may be passed to the constructor. If none is recieved, the value is 0.
+An inital value for `Bitfield` may be passed to the constructor. If none is recieved, the value is 0.
 
-Bitfield supports all binary arithmetic operations: `&`, `^`, `|`, `>>`, `<<`.
+`Bitfield` supports all binary arithmetic operations: `&`, `^`, `|`, `>>`, `<<`.
 
-Getting bits in a Bitfield is done with the [] operator. When getting bits, if an index is passed, an integer of either 0 or 1 is returned. If a slice is passed, a new Bitfield object holding the selected bits is returned.
+Getting bits in a `Bitfield` is done with the `[]` operator. When getting bits, if an index is passed, an integer of either 0 or 1 is returned. If a slice is passed, a new `Bitfield` object holding the selected bits is returned.
 
 ```python
 >>> b = Bitfield(0b100101)
@@ -76,7 +76,7 @@ Bitfield 0b1001
 Bitfield 0b1
 ```
 
-Setting bits in a Bitfield is done in a similar manner to lists.
+Setting bits in a `Bitfield` is done in a similar manner to lists.
 
 ```python
 >>> b = Bitfield(0b100101)
@@ -85,7 +85,7 @@ Setting bits in a Bitfield is done in a similar manner to lists.
 Bitfield 0b101101
 ```
 
-Bitfield is iterable. Each bit is a seperator item. It's length is the number of all bits up until the highest set bit.
+`Bitfield` is iterable. Each bit is a seperator item. It's length is the number of all bits up until the highest set bit.
 
 ```python
 >>> b = Bitfield(1)
