@@ -40,8 +40,14 @@ class TestBitfield(unittest.TestCase):
     def test_get_slice(self):
         b = bitfield.Bitfield(0b10101010)  # 170
 
-        actual = b[1:4]
-        self.assertEqual(actual, 0b00001010)
+        a1 = b[1:4]
+        a2 = b[3:6]
+        a3 = b[3:]
+        a4 = b[:3]
+        self.assertEqual(a1, 0b101)
+        self.assertEqual(a2, 0b101)
+        self.assertEqual(a3, 0b10101)
+        self.assertEqual(a4, 0b010)
 
     def test_get_bad(self):
         b = bitfield.Bitfield()

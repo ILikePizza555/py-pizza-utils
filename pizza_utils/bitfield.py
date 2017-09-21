@@ -9,9 +9,6 @@ class Bitfield():
     """
     Represents a bitfield of an arbirary size.
 
-    This class functions similar to an array. Use the [] operater to get or
-    set a bit.
-
     Bitfields are little-endian.
     """
     def __init__(self, value: Optional[int] = 0):
@@ -63,7 +60,7 @@ class Bitfield():
 
         self._value | o
 
-    def __str__(self):
+    def __repr__(self):
         return "Bitfield " + bin(self._value)
 
     def __bytes__(self):
@@ -95,7 +92,7 @@ class Bitfield():
             step = key.step if key.step is not None else 1
 
             mask = sum([2**n for n in range(start, stop, step)])
-            return Bitfield(self._value & mask)
+            return Bitfield((self._value & mask) >> start)
         else:
             raise TypeError()
 
