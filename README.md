@@ -76,6 +76,15 @@ Bitfield 0b1001
 Bitfield 0b1
 ```
 
+Setting bits in a Bitfield is done in a similar manner to lists.
+
+```python
+>>> b = Bitfield(0b100101)
+>>> b[3] = 1
+>>> b
+Bitfield 0b101101
+```
+
 Bitfield is iterable. Each bit is a seperator item. It's length is the number of all bits up until the highest set bit.
 
 ```python
@@ -87,3 +96,5 @@ Bitfield 0b10000000000
 >>> list(b << 10)
 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
 ```
+
+It is important to note that the length of a bitfield is an implementation detail. Accessing a bit greather than it's Bitfield's length will return 0. Setting a bit greather than it's Bitfield's length will increase the size of the bitfield. *Accessing or setting bits using a negative index is untested and unsupported.*
