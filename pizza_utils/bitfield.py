@@ -34,31 +34,31 @@ class Bitfield():
         if type(o) != int:
             return NotImplemented
 
-        self._value << o
+        return Bitfield(self._value << o)
 
     def __rshift__(self, o):
         if type(o) != int:
             return NotImplemented
 
-        self._value >> o
+        return Bitfield(self._value >> o)
 
     def __and__(self, o):
-        if type(o) != int:
-            return NotImplemented
-
-        self._value & o
+        if type(o) == int:
+            return Bitfield(self._value & o)
+        elif isinstance(o, Bitfield):
+            return Bitfield(self._value & o._value)
 
     def __xor__(self, o):
-        if type(o) != int:
-            return NotImplemented
-
-        self._value ^ o
+        if type(o) == int:
+            return Bitfield(self._value ^ o)
+        elif isinstance(o, Bitfield):
+            return Bitfield(self._value ^ o._value)
 
     def __or__(self, o):
-        if type(o) != int:
-            return NotImplemented
-
-        self._value | o
+        if type(o) == int:
+            return Bitfield(self._value | o)
+        elif isinstance(o, Bitfield):
+            return Bitfield(self._value | o._value)
 
     def __repr__(self):
         return "Bitfield " + bin(self._value)
