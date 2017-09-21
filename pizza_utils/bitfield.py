@@ -46,6 +46,10 @@ class Bitfield():
         """
         return math.floor(math.log2(self._value)) + 1
 
+    def __iter__(self):
+        for i in range(0, len(self)):
+            yield self[i]
+
     def __getitem__(self, key):
         """
         Returns the bit at the given index.
@@ -54,7 +58,7 @@ class Bitfield():
         sliced bits.
         """
         if type(key) == int:
-            return max(1, min(0, self._value & 2**key))
+            return max(0, min(1, self._value & 2**key))
         elif isinstance(key, slice):
             start = key.start if key.start is not None else 0
             stop = key.stop if key.stop is not None else len(self)

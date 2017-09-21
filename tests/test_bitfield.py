@@ -32,8 +32,10 @@ class TestBitfield(unittest.TestCase):
     def test_get_simple(self):
         b = bitfield.Bitfield(0b10101010)  # 170
 
-        actual = b[3]
-        self.assertEqual(actual, 1)
+        a1 = b[3]
+        a2 = b[2]
+        self.assertEqual(a1, 1)
+        self.assertEqual(a2, 0)
 
     def test_get_slice(self):
         b = bitfield.Bitfield(0b10101010)  # 170
@@ -65,3 +67,17 @@ class TestBitfield(unittest.TestCase):
         b = bitfield.Bitfield(0b10000011)
 
         self.assertEqual(len(b), 8)
+
+    def test_iter(self):
+        b = bitfield.Bitfield(0b101001)
+
+        expected = [1, 0, 0, 1, 0, 1]
+
+        self.assertEqual(list(b), expected)
+
+    def test_rev(self):
+        b = bitfield.Bitfield(0b101001)
+
+        expected = [1, 0, 1, 0, 0, 1]
+
+        self.assertEqual(list(reversed(b)), expected)
