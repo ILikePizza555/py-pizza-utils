@@ -71,6 +71,8 @@ class Bitfield():
         Returns the number of bits in this bitfield, which is the highest set 
         bit
         """
+        if self._value == 0 or self._value == 1:
+            return 1
         return math.floor(math.log2(self._value)) + 1
 
     def __iter__(self):
