@@ -11,8 +11,6 @@ All tests are located in the tests/ directory and use the unittest module
 
 # Documentation #
 
-Currently, the library is small enough to make the docs all one file
-
 ## Iterutils ##
 
 A collection of utilities for iteration
@@ -98,3 +96,36 @@ Bitfield 0b10000000000
 ```
 
 It is important to note that the length of a bitfield is an implementation detail. Accessing a bit greather than it's Bitfield's length will return 0. Setting a bit greather than it's Bitfield's length will increase the size of the bitfield. *Accessing or setting bits using a negative index is untested and unsupported.*
+
+## Decs ##
+
+A collection of function decorators.
+
+### decs.enforce_state(property_name, expected_value) ###
+
+A decorator for class member functions. 
+
+If the given class property is not equivalent to the expected value when calling the class member, a ValueError will be thrown.
+
+#### Example ###
+
+Consider the class:
+
+```python
+class Test:
+    def __init__(self):
+        self.state = 0
+        
+    @decs.enforce_state("state", 5)
+    def member(self):
+        pass
+```
+
+Attempting to call member in this state will result in an error:
+
+```
+>>> a = Test()
+>>> a.member()
+[...]
+ValueError: Cannot call member(), state is 0! (Expected: 5)
+```
